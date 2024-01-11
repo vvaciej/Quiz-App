@@ -1,0 +1,106 @@
+
+.quiz-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 22px;
+  width: 650px;
+  height: 100%;
+  .question-btn {
+    display: flex;
+    column-gap: 30px;
+    background-color: $quizBtn;
+    align-items: center;
+    height: max-content;
+    min-width: 100%;
+    padding: 14px 16px; 
+    border-radius: 20px;
+    &:hover {
+      transform: scale(1.01);
+      transition: .2s;
+    }
+    .quiz-icon {
+      height: 55px;
+      min-width: 55px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i {
+        font-size: 36px;
+      }
+    }
+    h2 {
+      color: $text;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+  .quiz-icon {
+    background-color: #ddd;
+  }
+  .quiz-answer-text {
+    color: #606060;
+    font-size: 26px;
+  }
+  .submit-answer {
+    width: 100%;
+    height: 80px;
+    background-color: $submitProgress;
+    border-radius: 25px;
+    margin-top: 8px;
+    box-shadow: rgba(50, 50, 93, 0.45) 0px 13px 27px -5px, rgba(229, 229, 229, 0.2) 0px 8px 16px -8px;
+    h1 {
+      color: $text;
+      font-size: 26px;
+    }
+    &:hover {
+      transform: scale(1.01);
+      transition: .2s;
+    }
+  }
+}
+
+.text-question-area {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: max-content;
+  .main-text-quiz-section {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 450px;
+    i {
+      color: $blueText;
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 32px;
+      color: $text;
+      font-weight: 700;
+      margin-top: 15px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 16px;
+      background-color: $quizBtn;
+      border-radius: 10px;
+      margin-top: 100px;
+      position: relative;
+      &::before {
+        width: 90%;
+        height: 9px;
+        background-color: $submitProgress;
+        content: "";
+        position: absolute;
+        border-radius: 10px;
+        top: 50%;
+        left: 5px;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+}
