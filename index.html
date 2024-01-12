@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8">
   <meta name="theme-color" content="#101010">
@@ -7,24 +7,23 @@
   <meta description="Quiz App | Level Easy" content="Project from FrontendMentor">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <script src="https://kit.fontawesome.com/b367f4fd12.js" crossorigin="anonymous"></script>
-  <link rel="icon" href="/public/vite.svg">
+  <link rel="icon" href="/vite.svg">
   <link rel="stylesheet" href="/style/main.css">
-  <script type="module" src="main.js"></script>
   <title>My app</title>
 </head>
 <body>
-
+  <header class="header">
+    <section class="header-choosed">
+    </section>
+    <section>
+      <i class="fa-solid fa-sun"></i>
+      <div class="theme-switcher" role="theme switch"></div>
+      <i class="fa-solid fa-moon"></i>
+    </section>
+  </header>
+  <div class="circles"></div>
   <div class="wrapper">
 
-    <header class="header">
-      <section class="header-choosed">
-      </section>
-      <section>
-        <i class="fa-solid fa-sun"></i>
-        <div class="theme-switcher" role="theme switch"></div>
-        <i class="fa-solid fa-moon"></i>
-      </section>
-    </header>
 
     <main class="main">
       <!--Choose Quiz-->
@@ -73,9 +72,6 @@
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
         </section>
       </div>
       <div class="text-question-area html-second-question hide">
@@ -89,9 +85,6 @@
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
         </section>
       </div>
       <div class="text-question-area html-third-question hide">
@@ -104,57 +97,10 @@
           </h1>
           <div class="progress-bar"></div>
         </section>
-        <section class="html-third-questions-section quiz-section">
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>A</b></h1>
-            </div>
-            <h2>
-              <p>
-                SEO to proces optymalizacji strony w celu poprawy 
-                jej widoczności w wynikach wyszukiwania.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>B</b></h1>
-            </div>
-            <h2>
-              <p>
-                SEO oznacza ukrywanie treści przed użytkownikami, aby podnieść pozycje
-                w wynikach wyszukiwania.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>C</b></h1>
-            </div>
-            <h2>
-              <p>
-                SEO w HTML to rodzaj kodu używanego do przechowywania sekretnych 
-                informacji na stronie internetowej.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>D</b></h1>
-            </div>
-            <h2>
-              <p>
-                SEO w HTML to rodzaj emotikonu lub emoji używanego do wyrażania emocji na 
-                stronach internetowych aby przyciągnąć użytkownika.
-              </p>
-            </h2>
-          </button>
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
+        <section class="html-quiz-questions-section quiz-section">
         </section>
       </div>
-      <!-- <div class="text-question-area html-fourth-question hide">
+      <div class="text-question-area html-fourth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 4 of 10</b></i>
           <h1>
@@ -164,55 +110,10 @@
           </h1>
           <div class="progress-bar"></div>
         </section>
-        <section class="html-fourth-questions-section quiz-section">
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>A</b></h1>
-            </div>
-            <h2>
-              <p>
-                Doctype to rodzaj czcionki używanej w HTML do formatowania tekstu.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>B</b></h1>
-            </div>
-            <h2>
-              <p>
-                Doctype jest to poinformowanie przeglądarki internetowej w 
-                jakiej wersji HTML jest ona napisana.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>C</b></h1>
-            </div>
-            <h2>
-              <p>
-                Nie ma takiego czegoś jak Doctype.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>D</b></h1>
-            </div>
-            <h2>
-              <p>
-                Doctype to nazwa specjalnego narzędzia do 
-                testowania poprawności kodu HTML na stronie internetowej.
-              </p>
-            </h2>
-          </button>
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
+        <section class="html-quiz-questions-section quiz-section">
         </section>
-      </div> -->
-      <!-- <div class="text-question-area html-fifth-question hide">
+      </div>
+      <div class="text-question-area html-fifth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 5 of 10</b></i>
           <h1>
@@ -222,275 +123,77 @@
           </h1>
           <div class="progress-bar"></div>
         </section>
-        <section class="html-fifth-questions-section quiz-section">
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>A</b></h1>
-            </div>
-            <h2>
-              <p>
-                ARIA w HTML służy do zwiększeniu dostępności strony dla ludzi niewidomych.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>B</b></h1>
-            </div>
-            <h2>
-              <p>
-                ARIA to narzędzie służące do wyświetlania 
-                reklam na stronie internetowej.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>C</b></h1>
-            </div>
-            <h2>
-              <p>
-                ARIA używa sie do pobrania strony w pliku PDF.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>D</b></h1>
-            </div>
-            <h2>
-              <p>
-                ARIA to narzędzie używane do przekształcania 
-                stron internetowych w pliki dźwiękowe w celu zwiększenia dostępności dla niewidomych.
-              </p>
-            </h2>
-          </button>
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
+        <section class="html-quiz-questions-section quiz-section">
         </section>
-      </div> -->
-      <!-- <div class="text-question-area html-sixth-question hide">
+      </div>
+      <div class="text-question-area html-sixth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 6 of 10</b></i>
           <h1>
             <p>
-              W jaki sposób ograniczyć liczbę znaków w Inpucie.
+              W jaki sposób ograniczyć liczbę znaków w Inpucie?
             </p>
           </h1>
           <div class="progress-bar"></div>
         </section>
-        <section class="html-sixth-questions-section quiz-section">
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>A</b></h1>
-            </div>
-            <h2>
-              <p>
-                Wystarczy, że nadamy atrybut max i przypiszemy do niego wartość, którą ma być
-                maksymalna liczba znaków.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>B</b></h1>
-            </div>
-            <h2>
-              <p>
-                W HTML nie da się aktualnie ograniczyć liczbe znaków w Input, trzeba użyc do tego
-                Javascript.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>C</b></h1>
-            </div>
-            <h2>
-              <p>
-                Służy do tego atrybut maxLength.
-              </p>
-            </h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>D</b></h1>
-            </div>
-            <h2>
-              <p>
-                Służy do tego specjalny tag limit.
-              </p>
-            </h2>
-          </button>
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
+        <section class="html-quiz-questions-section quiz-section">
         </section>
-      </div> -->
-      <!-- <div class="text-question-area html-seventh-question hide">
+      </div>
+      <div class="text-question-area html-seventh-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 7 of 10</b></i>
           <h1>
             <p>
-              Which
+              //
             </p>
           </h1>
           <div class="progress-bar"></div>
         </section>
-        <section class="html-seventh-questions-section quiz-section">
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>A</b></h1>
-            </div>
-            <h2>4.5 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>B</b></h1>
-            </div>
-            <h2>3 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>C</b></h1>
-            </div>
-            <h2>2.5 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>D</b></h1>
-            </div>
-            <h2>5 : 1</h2>
-          </button>
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
+        <section class="html-quiz-questions-section quiz-section">
         </section>
-      </div> -->
-      <!-- <div class="text-question-area html-eightth-question hide">
+      </div>
+      <div class="text-question-area html-eightth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 8 of 10</b></i>
           <h1>
             <p>
-              Which
+              Jaka jest różnica między div, a span?
             </p>
           </h1>
           <div class="progress-bar"></div>
         </section>
-        <section class="html-eightth-questions-section quiz-section">
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>A</b></h1>
-            </div>
-            <h2>4.5 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>B</b></h1>
-            </div>
-            <h2>3 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>C</b></h1>
-            </div>
-            <h2>2.5 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>D</b></h1>
-            </div>
-            <h2>5 : 1</h2>
-          </button>
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
+        <section class="html-quiz-questions-section quiz-section">
         </section>
-      </div> -->
-      <!-- <div class="text-question-area html-nineth-question hide">
+      </div>
+      <div class="text-question-area html-nineth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 9 of 10</b></i>
           <h1>
             <p>
-              Which
+              Jak możemy komentować w HTML?
             </p>
           </h1>
           <div class="progress-bar"></div>
         </section>
-        <section class="html-second-questions-section quiz-section">
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>A</b></h1>
-            </div>
-            <h2>4.5 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>B</b></h1>
-            </div>
-            <h2>3 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>C</b></h1>
-            </div>
-            <h2>2.5 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>D</b></h1>
-            </div>
-            <h2>5 : 1</h2>
-          </button>
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
+        <section class="html-quiz-questions-section quiz-section">
         </section>
-      </div> -->
-      <!-- <div class="text-question-area html-ten-question hide">
+      </div>
+      <div class="text-question-area html-ten-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 10 of 10</b></i>
           <h1>
             <p>
-              Which
+              //
             </p>
           </h1>
           <div class="progress-bar"></div>
         </section>
         <section class="html-ten-questions-section quiz-section">
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>A</b></h1>
-            </div>
-            <h2>4.5 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>B</b></h1>
-            </div>
-            <h2>3 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>C</b></h1>
-            </div>
-            <h2>2.5 : 1</h2>
-          </button>
-          <button class="question-btn">
-            <div class="quiz-icon">
-              <h1 class="quiz-answer-text"><b>D</b></h1>
-            </div>
-            <h2>5 : 1</h2>
-          </button>
-          <button class="submit-answer">
-            <h1><b>Submit answer</b></h1>
-          </button>
         </section>
-      </div> -->
+      </div>
     </main>
 
   </div>
-
+  <script type="module" src="main.js"></script>
 </body>
 </html>

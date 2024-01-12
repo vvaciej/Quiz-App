@@ -1,4 +1,5 @@
 import './style.css'
+import { HTMLAnswersArr } from './answers';
 
 /* ---- Theme Switcher ---- */
 const themeSwitcher = document.querySelector('.theme-switcher');
@@ -33,66 +34,115 @@ allOptions.forEach(btn => {
   btn.addEventListener('click', showChoosedQuiz);
 })
 
+/* ---- Generate Answers ---- */
+let newAnswersArr;
+let newSubmits;
+
+const generateNewQuestion = () => {
+  const htmlAnswersSection = document.querySelectorAll('.html-quiz-questions-section');
+  const newDiv = document.createElement('div');
+  newDiv.classList.add('flex', 'flex-col', 'gap-y-5');
+
+  const newAnswers = `
+  <button class="question-btn answer hover:opacity-80 hover:transition first">
+    <div class="quiz-icon"><h1 class="quiz-answer-text"><b>A</b></h1></div>
+    <h2>
+      <p class="question-text">${HTMLAnswersArr[currentQuestion].first}</p>
+    </h2>
+  </button>
+  <button class="question-btn answer hover:opacity-80 hover:transition second">
+    <div class="quiz-icon"><h1 class="quiz-answer-text"><b>B</b></h1></div>
+    <h2>
+      <p class="question-text">${HTMLAnswersArr[currentQuestion].second}</p>
+    </h2>
+  </button>
+  <button class="question-btn answer hover:opacity-80 hover:transition third">
+    <div class="quiz-icon"><h1 class="quiz-answer-text"><b>C</b></h1></div>
+    <h2>
+      <p class="question-text">${HTMLAnswersArr[currentQuestion].third}</p>
+    </h2>
+  </button>
+  <button class="question-btn answer hover:opacity-80 hover:transition fourth">
+    <div class="quiz-icon"><h1 class="quiz-answer-text"><b>D</b></h1></div>
+    <h2>
+      <p class="question-text">${HTMLAnswersArr[currentQuestion].fourth}</p>
+    </h2>
+  </button>
+  <button class="submit-answer not-selected">
+    <h1><b>Submit answer</b></h1>
+  </button>
+  `
+
+  newDiv.innerHTML = newAnswers;
+  htmlAnswersSection[currentQuestion].append(newDiv);
+
+  newSubmits = newDiv.querySelectorAll('.submit-answer');
+  newSubmits.forEach(btn => btn.addEventListener('click', valided));
+
+  newAnswersArr = newDiv.querySelectorAll('.question-btn.answer');
+  newAnswersArr.forEach(btn => btn.addEventListener('click', handleAnswerClick));
+}
+
+/* ---- Select Your Answer ---- */
+const handleAnswerClick = (e) => {
+  const clickedBtn = e.currentTarget;
+  newAnswersArr.forEach(btn => btn.classList.remove('selected'));
+  clickedBtn.classList.add('selected');
+
+  newSubmits.forEach(submit => submit.classList.remove('not-selected'));
+}
+
+/* ---- Check Validity To Submit ---- */
+const checkIfIsSomeSelected = () => {
+  const whatIsCorrect = HTMLAnswersArr[currentQuestion].correctAnswer;
+  let someSelected = false;
+  let isCorrect = false;
+
+  newAnswersArr.forEach(btn => {
+    if (btn.classList.contains('selected')) {
+      someSelected = true;
+      if (btn.classList.contains(whatIsCorrect)) {
+        isCorrect = true;
+      }
+    }
+  })
+
+  if (!isCorrect) {
+    newAnswersArr.forEach(e => {
+      if (e.classList.contains('selected')) {
+        e.classList.add('error');
+      }
+    })
+  }
+
+  return [ someSelected, isCorrect ];
+}
+
 /* ---- Show Next Question ---- */
-const submitBtn = document.querySelectorAll('.submit-answer');
 let currentQuestion = 0;
+
+const increaseProgressBar = () => {
+  const progressBar = document.querySelectorAll('.progress-bar');
+
+  const newWidth = (currentQuestion + 1) * 10 + '%';
+
+  progressBar.forEach(bar => {
+    bar.style.setProperty('--before-width', newWidth);
+  });
+}
 
 const showNextQuestion = () => {
   allAnswersSection[currentQuestion].classList.add('hide');
   currentQuestion++;
   allAnswersSection[currentQuestion].classList.remove('hide');
+
+  increaseProgressBar();
   generateNewQuestion();
 }
 
-submitBtn.forEach(btn => btn.addEventListener('click', showNextQuestion))
+const valided = () => {
+  const someSelected = checkIfIsSomeSelected();
+  const check = someSelected.every(e => e);
 
-/* ---- Generate Answers ---- */
-const generateNewQuestion = () => {
-  alert(currentQuestion);
-  const htmlAnswersSection = document.querySelectorAll('.html-quiz-questions-section');
-  const newDiv = document.createElement('div');
-  newDiv.classList.add('flex', 'flex-col', 'gap-y-5')
-  const newAnswers = `
-  <button class="question-btn">
-    <div class="quiz-icon"><h1 class="quiz-answer-text"><b>A</b></h1></div>
-    <h2>
-      <p>${HTMLAnswersArr[currentQuestion].first}</p>
-    </h2>
-  </button>
-  <button class="question-btn">
-    <div class="quiz-icon"><h1 class="quiz-answer-text"><b>B</b></h1></div>
-    <h2>
-      <p>${HTMLAnswersArr[currentQuestion].second}</p>
-    </h2>
-  </button>
-  <button class="question-btn">
-    <div class="quiz-icon"><h1 class="quiz-answer-text"><b>C</b></h1></div>
-    <h2>
-      <p>${HTMLAnswersArr[currentQuestion].third}</p>
-    </h2>
-  </button>
-  <button class="question-btn">
-    <div class="quiz-icon"><h1 class="quiz-answer-text"><b>D</b></h1></div>
-    <h2>
-      <p>${HTMLAnswersArr[currentQuestion].fourth}</p>
-    </h2>
-  </button>
-  `
-  newDiv.innerHTML = newAnswers;
-  htmlAnswersSection[currentQuestion].prepend(newDiv);
+  if (check) showNextQuestion();
 }
-
-const HTMLAnswersArr = [
-  {
-    first: 'Kod semantyczny to sposób na tworzenie stron internetowych bez użycia tagów HTML.',
-    second: 'Jest to kod używany tylko do stylizacji strony internetowej.',
-    third: 'Kod semantyczny to kod, który zawiera tylko komentarze dla programistów i nie ma wpływu na wygląd strony.',
-    fourth: 'Kodem semantycznym nazywamy, używanie tagów w HTML, które dobrze definiją strukturę i znaczenie zawartości.'
-  },
-  {
-    first: 'Accessibility to narzędzie do ukrywania treści przed użytkownikami, którzy nie powinni jej widzieć.',
-    second: 'Accessibility to rodzaj animacji, który przyciąga uwagę użytkowników do określonych elementów na stronie.',
-    third: 'Accessibility to pisanie kodu HTML w taki sposób aby użytkownicy z niepełnosprawnościami mogli swobodnie korzystać z strony.',
-    fourth: 'Accessibility to skomplikowane style CSS, które nadają stronie estetyczny wygląd.'
-  }
-]
