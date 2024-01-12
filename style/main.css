@@ -230,7 +230,7 @@ body {
 .circles {
   overflow: hidden;
   min-height: 100vh;
-  height: 100%;
+  max-height: 100%;
   width: 100vw;
   position: absolute;
 }
@@ -281,18 +281,18 @@ body {
   width: 100%;
   padding: 50px 100px;
   position: relative;
-  margin-top: 90px;
+  padding-top: 90px;
 }
 @media (max-width: 1500px) {
   .wrapper {
-    margin-top: 220px;
+    padding-top: 220px;
     padding: 0px 0px;
     width: 92%;
   }
 }
 @media (max-width: 1130px) {
   .wrapper {
-    margin-top: 130px;
+    padding-top: 130px;
   }
 }
 
