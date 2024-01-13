@@ -47,7 +47,6 @@ html.light {
   width: 660px;
   height: 100%;
   flex-direction: column;
-  touch-action: none;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
