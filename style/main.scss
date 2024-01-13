@@ -13,7 +13,7 @@ html.dark {
   --accessIcon: #8738C8;
   --themeSwitcherBg: #A829F4;
   --quizBtn: #3C4D67;
-  --lightgrey: #ddd;
+  --lightgrey: #f8f8f8;
   --submitProgress: #A629F5;
   transition: .3s ease;
 }
@@ -90,11 +90,15 @@ html {
   min-height: 100vh;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
   font-size: 16px;
   font-family: 'Lato', sans-serif !important;
   font-weight: 400;
   font-style: normal;
   background-color: var(--bg);
+  button {
+    font-family: 'Lato', sans-serif;
+  }
   @include tablet {
     height: max-content;
   }
@@ -176,6 +180,7 @@ body {
   @include mobile {
     padding-left: 35px;
     padding-right: 35px;
+    padding-bottom: 30px;
   }
   @include smaller-mobile {
     padding-left: 30px;
@@ -260,6 +265,15 @@ body {
     }
   }
   .main-text-section {
+    transition: transform .5s ease;
+    transition: opacity .5 ease;
+    &:not(.loaded) {
+      position: relative;
+      transform: translate(-100%);
+      opacity: 0;
+      transition: transform .5s ease;
+      transition: opacity .5 ease;
+    }
     @include tablet {
       margin-bottom: 16px;
     }
@@ -267,6 +281,7 @@ body {
       margin-bottom: 12px;
     }
     h1 {
+      width: max-content;
       font-size: 62px;
       line-height: 1.2;
       color: var(--text);
@@ -276,6 +291,7 @@ body {
       }
       @include tablet {
         margin-bottom: 15px;
+        width: auto;
       }
       @include mobile {
         font-size: 43px;

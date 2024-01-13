@@ -1,6 +1,8 @@
 import './style.css'
+import confetti from 'canvas-confetti';
 import { HTMLAnswersArr } from './answers';
 
+let score = 0;
 /* ---- Theme Switcher ---- */
 const themeSwitcher = document.querySelector('.theme-switcher');
 
@@ -51,7 +53,7 @@ let newSubmits;
 
 const generateNewQuestion = () => {
   const htmlAnswersSection = document.querySelectorAll('.html-quiz-questions-section');
-  newDiv.classList.add('flex', 'flex-col', 'gap-y-5');
+  newDiv.classList.add('flex', 'flex-col', 'gap-y-4');
   
   const newAnswers = `
   <button class="question-btn answer first">
@@ -83,6 +85,13 @@ const generateNewQuestion = () => {
 
   newAnswersArr = newDiv.querySelectorAll('.question-btn.answer');
   newAnswersArr.forEach(btn => btn.addEventListener('click', handleAnswerClick));
+
+  newAnswersArr.forEach(btn => {
+    const answerText = btn.querySelector('.answer-text').textContent.trim();
+    if (answerText === '') {
+      btn.remove();
+    }
+  });
 }
 
 /* ---- Select Your Answer ---- */
@@ -111,36 +120,78 @@ const checkIfIsSomeSelected = () => {
     }
   })
 
+  const checkForScore = Array.from(newAnswersArr).some(btn => btn.classList.contains('error'));
+  if (!checkForScore) score++;
+
   return [ someSelected, isCorrect ];
 }
 
 /* ---- Show Next Question ---- */
+const progressBar = document.querySelectorAll('.progress-bar');
 let currentQuestion = 0;
 
 const increaseProgressBar = () => {
-  const progressBar = document.querySelectorAll('.progress-bar');
-
-  const newWidth = (currentQuestion + 1) * 9 + '%';
+  const newWidth = (currentQuestion + 1) * 9.2 + '%';
 
   progressBar.forEach(bar => {
     bar.style.setProperty('--before-width', newWidth);
   });
 }
 
+const scoreContainer = document.querySelector('.score-container');
+
 const showNextQuestion = () => {
   allAnswersSection[currentQuestion].classList.add('hide');
   currentQuestion++;
-  allAnswersSection[currentQuestion].classList.remove('hide');
-
-  increaseProgressBar();
-  generateNewQuestion();
+  
+  if (currentQuestion === 10) {
+    results();
+  } else if (currentQuestion < 10) {
+    allAnswersSection[currentQuestion].classList.remove('hide');
+    
+    increaseProgressBar();
+    generateNewQuestion();
+  }
 }
 
 const valided = () => {
   const someSelected = checkIfIsSomeSelected();
   const check = someSelected.every(e => e);
-
+  
   if (check) showNextQuestion();
+}
+
+const results = () => {
+  scoreContainer.classList.remove('hide');
+  const scoreText = document.querySelector('.score-number');
+  scoreText.textContent = `${score}`;
+
+  let confetties = setInterval(() => {
+    confetti();
+  }, 800)
+
+  setTimeout(() => {
+    clearInterval(confetties);
+  }, 2200)
+}
+
+/* ---- Play Again ---- */
+const playAgainBtn = document.querySelector('.play-again-btn');
+
+playAgainBtn.addEventListener('click', () => {
+  scoreContainer.classList.add('hide');
+  chooseQuizDiv.classList.remove('hide');
+  
+  resetAll();
+});
+
+const resetAll = () => {
+  score = 0;
+  currentQuestion = 0;
+
+  progressBar.forEach(bar => {
+    bar.style.setProperty('--before-width', '9%');
+  });
 }
 
 /* ---- Load Storaged ---- */
@@ -149,4 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isSwitched == 'true') {
     switchTheme();
   }
+  
+  // const quizSection = document.querySelector('.quiz-section');
+  const quizTextSection = document.querySelector('.main-text-section');
+  // quizSection.classList.add('loaded');
+  quizTextSection.classList.add('loaded');
 })

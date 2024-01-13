@@ -232,3 +232,97 @@
     }
   }
 }
+
+.score-container {
+  @include tablet {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    row-gap: 10px;
+  }
+}
+// do wystylowania
+.score-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  row-gap: 10px;
+  .score-text-section {
+    width: 500px;
+    border-radius: 10px;
+    height: 350px;
+    background-color: var(--lightgrey);
+    @include tablet {
+      width: 60%;
+      height: 320px;
+    }
+    @include mobile {
+      width: 75%;
+      height: 280px;
+    }
+    @include smaller-mobile {
+      width: 85%;
+      height: 250px;
+    }
+    .score-number {
+      font-size: 125px;
+      line-height: 1.2;
+      font-weight: bold;
+      color: var(--blueText);
+      @include tablet {
+        font-size: 110px;
+      }
+      @include mobile {
+        font-size: 90px;
+      }
+      @include smaller-mobile {
+        line-height: 1.1;
+        font-size: 70px;
+      }
+    }
+    .score-what-type-quiz {
+      font-weight: bold;
+      font-size: 30px;
+      color: var(--blueText);
+      @include mobile {
+        font-size: 26px;
+      }
+    }
+    .score-of-full {
+      font-size: 30px;
+      font-weight: bold;
+      color: var(--blueText);
+      @include mobile {
+        font-size: 26px;
+      }
+    }
+  }
+  .play-again-btn {
+    width: 500px;
+    height: 80px;
+    background-color: var(--submitProgress);
+    color: var(--text);
+    border-radius: 10px;
+    font-weight: bold;
+    transition: opacity .3s ease;
+    font-size: 28px;
+    @include tablet {
+      width: 60%;
+    }
+    @include mobile {
+      width: 75%;
+      font-size: 25px;
+    }
+    @include smaller-mobile {
+      width: 85%;
+    }
+    &:hover {
+      opacity: .8;
+      transition: opacity .3s ease;
+    }
+  }
+}

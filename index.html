@@ -36,7 +36,7 @@
           <i class="undermain-text-greeting">Pick a subject to get started.</i>
         </section>
         <section class="main-choose-quiz-section quiz-section">
-          <ul class="flex flex-col gap-y-4">
+          <ul class="flex flex-col gap-y-4 list-none">
             <li>
               <button class="question-btn choose-quiz-btn">
                 <div class="html-icon quiz-icon">
@@ -149,7 +149,7 @@
       <div class="text-question-area html-nineth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 9 of 10</b></i>
-          <p class="question-text">Jak możemy komentować w HTML?</p>
+          <p class="question-text">Jak zapiszesz komentarz w HTML?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -164,8 +164,21 @@
         <section class="html-quiz-questions-section quiz-section">
         </section>
       </div>
+      <div class="text-question-area score-container hide">
+        <section class="main-text-quiz-section main-text-section loaded">
+          <h1 class="main-choose-quiz-greeting">Quiz completed <br> <b>You scored...</b></h1>
+        </section>
+        <div class="score-parent">
+          <section class="score-text-section flex justify-center flex-col gap-y-3">
+            <h2 class="score-what-type-quiz">HTML</h2>
+            <h1 class="score-number"></h1>
+            <span class="score-of-full">out of 10</span>
+          </section>
+          <button class="play-again-btn">Play again</button>
+        </div>
+      </div>
     </main>
-    <!-- <div class="back-btn"><i class="fa-solid fa-arrow-left"></i></div> -->
+    
   </div>
   <script type="module" src="main.js"></script>
 </body>
