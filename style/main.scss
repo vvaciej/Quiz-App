@@ -309,24 +309,25 @@ body {
 
 .selected {
   outline: 2px solid var(--text) !important;
+  transition: outline .3s ease;
 }
 
 .not-selected {
   opacity: .3;
-  transition: opacity .2s ease;
+  transition: opacity .4s ease;
   cursor: not-allowed;
 }
 
 .error {
   outline: 2px solid lightcoral !important;
-  transition: outline .2s ease;
+  transition: outline .3s ease;
 }
 
 .choose-quiz-btn {
-  transition: transform .2s ease !important;
+  transition: transform .3s ease !important;
   &:hover {
     transform: scale(1.05);
-    transition: transform .2s ease !important;
+    transition: transform .3s ease !important;
     @include tablet {
       transform: scale(1);
     }

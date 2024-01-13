@@ -619,25 +619,26 @@ body {
 
 .selected {
   outline: 2px solid var(--text) !important;
+  transition: outline 0.3s ease;
 }
 
 .not-selected {
   opacity: 0.3;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.4s ease;
   cursor: not-allowed;
 }
 
 .error {
   outline: 2px solid lightcoral !important;
-  transition: outline 0.2s ease;
+  transition: outline 0.3s ease;
 }
 
 .choose-quiz-btn {
-  transition: transform 0.2s ease !important;
+  transition: transform 0.3s ease !important;
 }
 .choose-quiz-btn:hover {
   transform: scale(1.05);
-  transition: transform 0.2s ease !important;
+  transition: transform 0.3s ease !important;
 }
 @media (max-width: 1130px) {
   .choose-quiz-btn:hover {
