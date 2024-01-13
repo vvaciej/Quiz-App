@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="theme-color" content="#101010">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta description="Quiz App | Level Easy" content="Project from FrontendMentor">
+  <meta 
+    name="description"
+    content="Interactive Quiz App - Test your knowledge in HTML, CSS, JavaScript, and Accessibility">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Frontend Quiz App - Enhance Your Web Development Skills</title>
   <script src="https://kit.fontawesome.com/b367f4fd12.js" crossorigin="anonymous"></script>
   <link rel="icon" href="/vite.svg">
   <link rel="stylesheet" href="/style/main.css">
-  <title>My app</title>
 </head>
 <body>
   <header class="header">
-    <section class="header-choosed">
+    <section class="header-choosed header-section">
     </section>
-    <section>
-      <i class="fa-solid fa-sun"></i>
-      <div class="theme-switcher" role="theme switch"></div>
+    <section class="header-theme-section header-section">
       <i class="fa-solid fa-moon"></i>
+      <div class="theme-switcher" role="theme switch"></div>
+      <i class="fa-solid fa-sun"></i>
     </section>
   </header>
   <div class="circles-parent">
@@ -30,34 +32,44 @@
       <!--Choose Quiz-->
       <div class="main-choose-quiz" role="choose type of quiz">
         <section class="main-text-section">
-          <h1>Welcome to the <br> <b>Frontend Quiz!</b></h1>
-          <i>Pick a subject to get started.</i>
+          <h1 class="main-choose-quiz-greeting">Welcome to the <br> <b>Frontend Quiz!</b></h1>
+          <i class="undermain-text-greeting">Pick a subject to get started.</i>
         </section>
         <section class="main-choose-quiz-section quiz-section">
-          <button class="question-btn choose-quiz-btn">
-            <div class="html-icon quiz-icon">
-              <i class="fa-solid fa-code"></i>
-            </div>
-            <h2>HTML</h2>
-          </button>
-          <button class="question-btn choose-quiz-btn">
-            <div class="css-icon quiz-icon">
-              <i class="fa-solid fa-brush"></i>
-            </div>
-            <h2>CSS</h2>
-          </button>
-          <button class="question-btn choose-quiz-btn">
-            <div class="js-icon quiz-icon">
-              <i class="fa-brands fa-js"></i>
-            </div>
-            <h2>Javascript</h2>
-          </button>
-          <button class="question-btn choose-quiz-btn">
-            <div class="access-icon quiz-icon">
-              <i class="fa-solid fa-universal-access"></i>
-            </div>
-            <h2>Accessibility</h2>
-          </button>
+          <ul class="flex flex-col gap-y-4">
+            <li>
+              <button class="question-btn choose-quiz-btn">
+                <div class="html-icon quiz-icon">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <h2 class="choose-quiz-btn-text">HTML</h2>
+              </button>
+            </li>
+            <li>
+              <button class="question-btn choose-quiz-btn">
+                <div class="css-icon quiz-icon">
+                  <i class="fa-solid fa-brush"></i>
+                </div>
+                <h2 class="choose-quiz-btn-text">CSS</h2>
+              </button>
+            </li>
+            <li>
+              <button class="question-btn choose-quiz-btn">
+                <div class="js-icon quiz-icon">
+                  <i class="fa-brands fa-js"></i>
+                </div>
+                <h2 class="choose-quiz-btn-text">Javascript</h2>
+              </button>
+            </li>
+            <li>
+              <button class="question-btn choose-quiz-btn">
+                <div class="access-icon quiz-icon">
+                  <i class="fa-solid fa-universal-access"></i>
+                </div>
+                <h2 class="choose-quiz-btn-text">Accessibility</h2>
+              </button>
+            </li>
+          </ul>
         </section>
       </div>
 
@@ -65,11 +77,7 @@
       <div class="text-question-area html-first-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 1 of 10</b></i>
-          <h1>
-            <p>
-              Czym jest kod semantyczny?
-            </p>
-          </h1>
+          <p class="question-text">Czym jest kod semantyczny?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -78,11 +86,7 @@
       <div class="text-question-area html-second-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 2 of 10</b></i>
-          <h1>
-            <p>
-              Czym jest accessibility?
-            </p>
-          </h1>
+          <p class="question-text">Czym jest accessibility?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -91,11 +95,7 @@
       <div class="text-question-area html-third-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 3 of 10</b></i>
-          <h1>
-            <p>
-              Czym jest <abbr>SEO</abbr>?
-            </p>
-          </h1>
+          <p class="question-text">Czym jest <abbr>SEO</abbr>?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -104,11 +104,7 @@
       <div class="text-question-area html-fourth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 4 of 10</b></i>
-          <h1>
-            <p>
-              Czym jest doctype?
-            </p>
-          </h1>
+          <p class="question-text">Czym jest doctype?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -117,11 +113,7 @@
       <div class="text-question-area html-fifth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 5 of 10</b></i>
-          <h1>
-            <p>
-              Do czego służy Aria?
-            </p>
-          </h1>
+          <p class="question-text">Do czego służy Aria?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -130,11 +122,7 @@
       <div class="text-question-area html-sixth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 6 of 10</b></i>
-          <h1>
-            <p>
-              W jaki sposób ograniczyć liczbę znaków w Inpucie?
-            </p>
-          </h1>
+          <p class="question-text">W jaki sposób ograniczyć liczbę znaków w Inpucie?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -143,11 +131,7 @@
       <div class="text-question-area html-seventh-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 7 of 10</b></i>
-          <h1>
-            <p>
-              //
-            </p>
-          </h1>
+          <p class="question-text">Jak zapiszesz odnośnik do telefonu w HTML</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -156,11 +140,7 @@
       <div class="text-question-area html-eightth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 8 of 10</b></i>
-          <h1>
-            <p>
-              Jaka jest różnica między div, a span?
-            </p>
-          </h1>
+          <p class="question-text">Jaka jest różnica między div, a span?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -169,11 +149,7 @@
       <div class="text-question-area html-nineth-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 9 of 10</b></i>
-          <h1>
-            <p>
-              Jak możemy komentować w HTML?
-            </p>
-          </h1>
+          <p class="question-text">Jak możemy komentować w HTML?</p>
           <div class="progress-bar"></div>
         </section>
         <section class="html-quiz-questions-section quiz-section">
@@ -182,19 +158,14 @@
       <div class="text-question-area html-ten-question hide">
         <section class="main-text-quiz-section">
           <i><b>Question 10 of 10</b></i>
-          <h1>
-            <p>
-              //
-            </p>
-          </h1>
+          <p class="question-text">Czym się różni href od target w tagu a?</p>
           <div class="progress-bar"></div>
         </section>
-        <section class="html-ten-questions-section quiz-section">
+        <section class="html-quiz-questions-section quiz-section">
         </section>
       </div>
     </main>
-
-    <div class="back-btn"><i class="fa-solid fa-arrow-left"></i></div>
+    <!-- <div class="back-btn"><i class="fa-solid fa-arrow-left"></i></div> -->
   </div>
   <script type="module" src="main.js"></script>
 </body>

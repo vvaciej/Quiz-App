@@ -1,19 +1,43 @@
+html.dark {
+  --bg: #313E51;
+  --text: #fff;
+  --blueText: #707F96;
+  --bgCircle: #2D3949;
+  --htmlIconBg: #FFF0E8;
+  --htmlIcon: #F79E65;
+  --cssIconBg: #E0FDEF;
+  --cssIcon: #5EC599;
+  --jsIconBg: #EDEFFC;
+  --jsIcon: #84AEFF;
+  --accessIconBg: #F5E7FF;
+  --accessIcon: #8738C8;
+  --themeSwitcherBg: #A829F4;
+  --quizBtn: #3C4D67;
+  --lightgrey: #ddd;
+  --submitProgress: #A629F5;
+  transition: .3s ease;
+}
 
-$bg: #313E51;
-$text: #fff;
-$blueText: #707F96;
-$bgCircle: #2D3949;
-$htmlIconBg: #FFF0E8;
-$htmlIcon: #F79E65;
-$cssIconBg: #E0FDEF;
-$cssIcon: #5EC599;
-$jsIconBg: #EDEFFC;
-$jsIcon: #84AEFF;
-$accessIconBg: #F5E7FF;
-$accessIcon: #8738C8;
-$themeSwitcherBg: #A829F4;
-$quizBtn: #3C4D67;
-$submitProgress: #A629F5;
+html.light {
+  --bg: #f0f0f0;
+  --text: #303030;
+  --blueText: #2a3039;
+  --bgCircle: #dfdfdf;
+  --htmlIconBg: #454133;
+  --htmlIcon: #bc9843;
+  --cssIconBg: #131622;
+  --cssIcon: #5bc4d0;
+  --jsIconBg: #535440;
+  --jsIcon: #ecf683;
+  --accessIconBg: #303336;
+  --accessIcon: #a9d0dd;
+  --themeSwitcherBg: #91e07f;
+  --quizBtn: #cecece;
+  --submitProgress: #91e07f;
+  --lightgrey: #ddd;
+  --grey: #1b1b1b;
+  transition: .3s ease;
+}
 
 @mixin smaller-desktop {
   @media (max-width: 1450px) {
@@ -22,7 +46,7 @@ $submitProgress: #A629F5;
 }
 
 @mixin smaller-height {
-  @media (max-height: 900px) and (min-width: 1250px) {
+  @media (max-height: 900px) and (min-width: 1130px) {
     @content;
   }
 }
@@ -51,7 +75,7 @@ $submitProgress: #A629F5;
   } 
 }
 
-@import './questions';
+@import './question-section';
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 *::before,
@@ -64,13 +88,16 @@ $submitProgress: #A629F5;
 
 html {
   min-height: 100vh;
-  height: max-content;
+  height: 100%;
   width: 100%;
   font-size: 16px;
   font-family: 'Lato', sans-serif !important;
   font-weight: 400;
   font-style: normal;
-  background-color: $bg;
+  background-color: var(--bg);
+  @include tablet {
+    height: max-content;
+  }
 }
 
 body {
@@ -102,7 +129,7 @@ body {
     z-index: -1;
     width: 800px;
     border-radius: 800px;
-    border: 130px solid $bgCircle;
+    border: 130px solid var(--bgCircle);
     filter: brightness(96%);
     @include smaller-desktop {
       left: -500px;
@@ -118,7 +145,7 @@ body {
     height: 800px;
     width: 800px;
     border-radius: 800px;
-    border: 130px solid $bgCircle;
+    border: 130px solid var(--bgCircle);
     filter: brightness(96%);
     @include smaller-height {
       display: none;
@@ -179,13 +206,13 @@ body {
     align-items: center;
     column-gap: 18px;
     i {
-      color: $text;
+      color: var(--text);
     }
     .theme-switcher {
       position: relative;
       width: 45px;
       height: 24px;
-      background-color: $themeSwitcherBg;
+      background-color: var(--themeSwitcherBg);
       border-radius: 40px;
       transition: .2s;
       cursor: pointer;
@@ -201,7 +228,7 @@ body {
         width: 18px;
         border-radius: inherit;
         transition: .2s;
-        background-color: $text;
+        background-color: var(--text);
       }
       &:not(.switched)::after {
         left: 3px;
@@ -219,7 +246,6 @@ body {
   .main-choose-quiz {
     display: flex;
     justify-content: space-between;
-    // margin-bottom: 150px;
     @include tablet {
       flex-direction: column;
       align-items: center;
@@ -243,7 +269,7 @@ body {
     h1 {
       font-size: 62px;
       line-height: 1.2;
-      color: $text;
+      color: var(--text);
       margin-bottom: 40px;
       @include smaller-desktop {
         font-size: 53px;
@@ -262,32 +288,13 @@ body {
       }
     }
     i {
-      color: $blueText;
+      color: var(--blueText);
       font-weight: 600;
       font-size: 20px;
       @include mobile {
         font-size: 19px;
       }
     }
-  }
-}
-
-.back-btn {
-  position: absolute;
-  bottom: 80px;
-  left: 85px;
-  font-size: 20px;
-  cursor: pointer;
-  touch-action: none;
-  color: #ddd;
-  &:not(.active) {
-    display: none;
-  }
-  @include tablet {
-    top: 30px;
-  }
-  @include mobile {
-    left: 45px;
   }
 }
 
@@ -301,7 +308,7 @@ body {
 }
 
 .selected {
-  outline: 2px solid white !important;
+  outline: 2px solid var(--text) !important;
 }
 
 .not-selected {
@@ -316,10 +323,10 @@ body {
 }
 
 .choose-quiz-btn {
-  transition: transform .2s ease;
+  transition: transform .2s ease !important;
   &:hover {
     transform: scale(1.05);
-    transition: transform .2s ease;
+    transition: transform .2s ease !important;
     @include tablet {
       transform: scale(1);
     }

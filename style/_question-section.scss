@@ -20,7 +20,7 @@
     display: flex;
     border: 0;
     column-gap: 24px;
-    background-color: $quizBtn;
+    background-color: var(--quizBtn);
     height: max-content;
     min-width: 100%;
     padding: 14px 16px; 
@@ -68,8 +68,8 @@
         }
       }
     }
-    h2 {
-      color: $text;
+    .answer-text, .choose-quiz-btn-text {
+      color: var(--text);
       font-size: 22px;
       font-weight: bold;
       text-align: left;
@@ -82,11 +82,12 @@
     }
   }
   .quiz-icon {
-    background-color: #ddd;
+    background-color: var(--lightgrey);
   }
   .quiz-answer-text {
-    color: #606060;
+    color: var(--grey);
     font-size: 26px;
+    font-weight: bold;
     @include smaller-desktop {
       font-size: 24px;
     }
@@ -97,14 +98,15 @@
   .submit-answer {
     width: 100%;
     height: 80px;
-    background-color: $submitProgress;
+    background-color: var(--submitProgress);
     border-radius: 25px;
     margin-top: 8px;
     transition: opacity .2s ease;
-    box-shadow: rgba(50, 50, 93, 0.45) 0px 13px 27px -5px, rgba(229, 229, 229, 0.2) 0px 8px 16px -8px;
-    h1 {
-      color: $text;
+    // box-shadow: rgba(50, 50, 93, 0.45) 0px 13px 27px -5px, rgba(229, 229, 229, 0.2) 0px 8px 16px -8px;
+    .submit-text {
+      color: var(--text);
       font-size: 26px;
+      font-weight: bold;
       @include smaller-desktop {
         font-size: 24px;
       }
@@ -152,15 +154,15 @@
       width: 100%;
     }
     i {
-      color: $blueText;
+      color: var(--blueText);
       font-size: 18px;
       @include mobile {
         font-size: 17px;
       }
     }
-    h1 {
+    .question-text {
       font-size: 32px;
-      color: $text;
+      color: var(--text);
       font-weight: 700;
       margin-top: 15px;
       @include mobile {
@@ -171,9 +173,9 @@
       }
     }
     .progress-bar {
-      --before-width: 10%;
+      --before-width: 9%;
       height: 16px;
-      background-color: $quizBtn;
+      background-color: var(--quizBtn);
       border-radius: 10px;
       margin-top: 40px;
       width: 100%;
@@ -187,7 +189,7 @@
       &::before {
         width: var(--before-width);
         height: 9px;
-        background-color: $submitProgress;
+        background-color: var(--submitProgress);
         content: "";
         position: absolute;
         border-radius: 10px;
@@ -203,9 +205,9 @@
 .main-choose-quiz-section {
   .question-btn {
     .quiz-icon.html-icon {
-      background-color: $htmlIconBg;
+      background-color: var(--htmlIconBg);
       i {
-        color: $htmlIcon;
+        color: var(--htmlIcon);
         font-size: 30px;
         @include smaller-desktop {
           font-size: 24px;
@@ -216,18 +218,18 @@
       }
     }
     .quiz-icon.css-icon {
-      background-color: $cssIconBg;
+      background-color: var(--cssIconBg);
       i {
-        color: $cssIcon;
+        color: var(--cssIcon);
       }
     }
     .quiz-icon.js-icon {
-      background-color: $jsIconBg;
-      color: $jsIcon;
+      background-color: var(--jsIconBg);
+      color: var(--jsIcon);
     }
     .quiz-icon.access-icon {
-      background-color: $accessIconBg;
-      color: $accessIcon;
+      background-color: var(--accessIconBg);
+      color: var(--accessIcon);
     }
   }
 }
