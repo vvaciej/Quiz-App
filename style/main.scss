@@ -16,7 +16,13 @@ $quizBtn: #3C4D67;
 $submitProgress: #A629F5;
 
 @mixin smaller-desktop {
-  @media (max-width: 1500px) {
+  @media (max-width: 1450px) {
+    @content;
+  }
+}
+
+@mixin smaller-height {
+  @media (max-height: 900px) and (min-width: 1250px) {
     @content;
   }
 }
@@ -25,6 +31,24 @@ $submitProgress: #A629F5;
   @media (max-width: 1130px) {
     @content;
   }
+}
+
+@mixin mobile {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin smaller-mobile {
+  @media (max-width: 390px) {
+    @content;
+  }
+}
+
+@mixin even-smaller-mobile {
+  @media (max-width: 330px) {
+    @content;
+  } 
 }
 
 @import './questions';
@@ -40,7 +64,7 @@ $submitProgress: #A629F5;
 
 html {
   min-height: 100vh;
-  height: 100%;
+  height: max-content;
   width: 100%;
   font-size: 16px;
   font-family: 'Lato', sans-serif !important;
@@ -58,20 +82,22 @@ body {
   align-items: center;
 }
 
-.circles {
-  overflow: hidden;
-  min-height: 100vh;
-  max-height: 100%;
-  width: 100vw;
+.circles-parent {
+  height: 100%;
+  width: 100%;
   position: absolute;
-  @include tablet {
-    width: 100%;
-  }
+  overflow: hidden;
+}
+.circles {
+  min-height: 100vh;
+  height: 200%;
+  width: 100vw;
+  z-index: -1;
   &:after {
     content: "";
     position: absolute;
     left: -380px;
-    bottom: 450px;
+    top: -250px;
     height: 800px;
     z-index: -1;
     width: 800px;
@@ -87,16 +113,18 @@ body {
     content: "";
     position: absolute;
     right: -200px;
-    bottom: -500px;
+    bottom: -450px;
     z-index: -1;
     height: 800px;
     width: 800px;
     border-radius: 800px;
     border: 130px solid $bgCircle;
     filter: brightness(96%);
-    @include smaller-desktop {
-      right: -300px;
-      bottom: -500px;
+    @include smaller-height {
+      display: none;
+    }
+    @include tablet {
+      display: none;
     }
   }
 }
@@ -104,16 +132,27 @@ body {
 .wrapper {
   height: 100%;
   width: 100%;
-  padding: 50px 100px;
+  padding: 0px 100px;
+  padding-top: 140px;
   position: relative;
-  padding-top: 90px;
   @include smaller-desktop {
-    padding-top: 220px;
-    padding: 0px 0px;
-    width: 92%;
+    padding: 80px 55px;
+  }
+  @include smaller-height {
+    padding-top: 90px !important;
   }
   @include tablet {
-    padding-top: 130px;
+    padding-top: 105px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @include mobile {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  @include smaller-mobile {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
@@ -128,8 +167,12 @@ body {
     right: 60px;
   }
   @include tablet {
+    right: 100px;
     margin-top: 30px;
     top: 10px;
+  }
+  @include mobile {
+    right: 45px;
   }
   section {
     display: flex;
@@ -146,6 +189,8 @@ body {
       border-radius: 40px;
       transition: .2s;
       cursor: pointer;
+      z-index: 2;
+      touch-action: none;
       &::after {
         content: "";
         position: absolute;
@@ -167,25 +212,33 @@ body {
 
 .main {
   margin-top: 50px;
+  width: 100%;
   @include tablet {
     margin-top: 0;
   }
   .main-choose-quiz {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 150px;
+    // margin-bottom: 150px;
     @include tablet {
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      row-gap: 30px;
+      row-gap: 25px;
       margin-top: 0px;
-      margin-bottom: 100px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    @include mobile {
+      margin-bottom: 30px;
+      row-gap: 18px;
     }
   }
   .main-text-section {
     @include tablet {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+    @include mobile {
+      margin-bottom: 12px;
     }
     h1 {
       font-size: 62px;
@@ -197,14 +250,44 @@ body {
       }
       @include tablet {
         margin-bottom: 15px;
-        padding-top: 20px;
+      }
+      @include mobile {
+        font-size: 43px;
+      }
+      @include smaller-mobile {
+        font-size: 38px;
+      }
+      @include even-smaller-mobile {
+        font-size: 35px;
       }
     }
     i {
       color: $blueText;
       font-weight: 600;
       font-size: 20px;
+      @include mobile {
+        font-size: 19px;
+      }
     }
+  }
+}
+
+.back-btn {
+  position: absolute;
+  bottom: 80px;
+  left: 85px;
+  font-size: 20px;
+  cursor: pointer;
+  touch-action: none;
+  color: #ddd;
+  &:not(.active) {
+    display: none;
+  }
+  @include tablet {
+    top: 30px;
+  }
+  @include mobile {
+    left: 45px;
   }
 }
 
@@ -237,5 +320,8 @@ body {
   &:hover {
     transform: scale(1.05);
     transition: transform .2s ease;
+    @include tablet {
+      transform: scale(1);
+    }
   }
 }

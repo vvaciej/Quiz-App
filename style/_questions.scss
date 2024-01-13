@@ -5,22 +5,44 @@
   width: 660px;
   height: 100%;
   flex-direction: column;
+  touch-action: none;
+  user-select: none;
   @include smaller-desktop {
     width: 550px;
   }
   @include tablet {
-    width: 500px;
+    width: 88%;
+  }
+  @include mobile {
+    width: 100%;
   }
   .question-btn {
     display: flex;
     border: 0;
-    column-gap: 30px;
+    column-gap: 24px;
     background-color: $quizBtn;
-    align-items: center;
     height: max-content;
     min-width: 100%;
     padding: 14px 16px; 
     border-radius: 20px;
+    align-items: center;
+    transition: opacity .2s ease;
+    @include mobile {
+      border-radius: 12px;
+    }
+    &:hover {
+      opacity: .8;
+      transition: opacity .2s ease;
+      @include tablet {
+        opacity: 1;
+      }
+    }
+    @include smaller-desktop {
+      column-gap: 18px;
+    }
+    @include mobile {
+      padding: 12px 14px;
+    }
     .quiz-icon {
       height: 55px;
       min-width: 55px;
@@ -32,10 +54,17 @@
         height: 45px;
         min-width: 45px;
       }
+      @include mobile {
+        height: 40px;
+        min-width: 40px;
+      }
       i {
         font-size: 36px;
         @include smaller-desktop {
           font-size: 26px;
+        }
+        @include mobile {
+          font-size: 24px;
         }
       }
     }
@@ -47,6 +76,9 @@
       @include smaller-desktop {
         font-size: 20px;
       }
+      @include mobile {
+        font-size: 18.5px;
+      }
     }
   }
   .quiz-icon {
@@ -57,6 +89,9 @@
     font-size: 26px;
     @include smaller-desktop {
       font-size: 24px;
+    }
+    @include mobile {
+      font-size: 23px;
     }
   }
   .submit-answer {
@@ -76,6 +111,9 @@
       @include tablet {
         font-size: 23px;
       }
+      @include mobile {
+        font-size: 22px;
+      }
     }
     @include smaller-desktop {
       height: 70px;
@@ -91,7 +129,6 @@
   justify-content: space-between;
   width: 100%;
   height: max-content;
-  padding-bottom: 40px;
   @include smaller-desktop {
     row-gap: 40px;
   }
@@ -108,24 +145,45 @@
     @include smaller-desktop {
       width: 420px;
     }
+    @include tablet {
+      width: 88%;
+    }
+    @include mobile {
+      width: 100%;
+    }
     i {
       color: $blueText;
       font-size: 18px;
+      @include mobile {
+        font-size: 17px;
+      }
     }
     h1 {
       font-size: 32px;
       color: $text;
       font-weight: 700;
       margin-top: 15px;
+      @include mobile {
+        font-size: 27px;
+      }
+      @include smaller-mobile {
+        font-size: 24px;
+      }
     }
     .progress-bar {
       --before-width: 10%;
       height: 16px;
       background-color: $quizBtn;
       border-radius: 10px;
-      margin-top: 60px;
+      margin-top: 40px;
       width: 100%;
       position: relative;
+      @include tablet {
+        margin-top: 22px;
+      }
+      @include mobile {
+        margin-top: 15px;
+      }
       &::before {
         width: var(--before-width);
         height: 9px;
@@ -136,7 +194,7 @@
         top: 50%;
         left: 5px;
         transform: translate(0, -50%);
-        transition: .2s ease;
+        transition: width .2s ease;
       }
     }
   }
@@ -151,6 +209,9 @@
         font-size: 30px;
         @include smaller-desktop {
           font-size: 24px;
+        }
+        @include mobile {
+          font-size: 22px;
         }
       }
     }
