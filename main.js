@@ -31,7 +31,7 @@ const showChoosedQuiz = event => {
   if (clickedBtn === html) {
     chooseQuizDiv.classList.add('hide');
     allAnswersSection[currentQuestion].classList.remove('hide');
-    // backBtn.classList.add('active');
+    // backBtn.classList.add('active'); //weqfdewf
     generateNewQuestion();
   } else if (clickedBtn === css) {
     alert('Prace techniczne');

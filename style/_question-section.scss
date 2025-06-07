@@ -8,6 +8,7 @@
   user-select: none;
   @include smaller-desktop {
     width: 550px;
+    
   }
   @include tablet {
     width: 88%;

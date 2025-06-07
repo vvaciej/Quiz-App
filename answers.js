@@ -4,7 +4,7 @@ export const HTMLAnswersArr = [
     second: 'Kod semantyczny to kod, który zawiera tylko komentarze dla programistów i nie ma wpływu na wygląd strony',
     third: 'Kodem semantycznym nazywamy, używanie tagów w HTML, które dobrze definiją strukturę i znaczenie zawartości',
     fourth: '',
-    correctAnswer: 'third'
+    correctAnswer: 'third',
   },
   {
     first: 'Accessibility to narzędzie do ukrywania treści przed użytkownikami, którzy nie powinni jej widzieć',
